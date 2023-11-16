@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ProductsApplicationTests {
 	ImpostoCalculator imposto;
 	DescontoManager desconto;
+	Cliente c;
 
 
 	@Test
@@ -18,7 +19,7 @@ class ProductsApplicationTests {
 
 	@Test
 	void aplicarDescontoTest(){
-		assertEquals(desconto.aplicarDesconto(100, 10), 90);
+		assertEquals(desconto.aplicarDesconto(c), 90);
 	} 
 	
 }

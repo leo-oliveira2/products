@@ -36,6 +36,19 @@ public class Cliente {
         return soma;
     }
 
+    public int qtdPedidosUltimosSeis(){
+        int qtdPedidos= 0;
+        for(Pedido pedido: pedidos){
+            Calendar sixMonthsAgo = Calendar.getInstance();
+            sixMonthsAgo.add(Calendar.MONTH, -6);
+
+            if (pedido.getData().before(sixMonthsAgo.getTime()) && pedido.isEfetivado()) {
+                qtdPedidos++;
+            }
+        }
+        return qtdPedidos;
+    }
+
     public List<Pedido> getPedidos(){
         return pedidos;
     }

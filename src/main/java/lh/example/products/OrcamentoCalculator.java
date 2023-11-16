@@ -3,6 +3,7 @@ package lh.example.products;
 public class OrcamentoCalculator {
     private ImpostoCalculator impCalculator;
     private DescontoManager descManager;
+    private Cliente c;
 
     public OrcamentoCalculator() {
         this.impCalculator = new ImpostoCalculator();
@@ -10,7 +11,7 @@ public class OrcamentoCalculator {
     }
 
     public double calcularOrcamento(double valor, double desconto) {
-        double valorComDesconto = descManager.aplicarDesconto(valor, desconto);
+        double valorComDesconto = descManager.aplicarDesconto(c);
         double valorComImposto = impCalculator.calcularImposto(valorComDesconto);
         return valorComImposto;
     }
