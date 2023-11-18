@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Armazem {
+
+    public Armazem() {
+    }
+
     public List<Estoque> estoque = new ArrayList<>();
-    
-    public void adicionarEstoque(Estoque est){
+
+    public void adicionarEstoque(Estoque est) {
         estoque.add(est);
     }
 

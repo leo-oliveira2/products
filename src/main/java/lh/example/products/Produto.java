@@ -4,7 +4,10 @@ public class Produto {
     private int id;
     private String nome;
     private double valor;
-    
+
+    public Produto() {
+    }
+
     public Produto(int id, String nome, double valor) {
         this.id = id;
         this.nome = nome;
@@ -34,5 +37,5 @@ public class Produto {
     public void setValor(double valor) {
         this.valor = valor;
     }
-    
+
 }
