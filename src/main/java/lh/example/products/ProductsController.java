@@ -16,7 +16,7 @@ public class ProductsController {
         return String.format("Id %d , Nome %s , Valor %.2f", p.getId(), p.getNome(), p.getValor());
     }
 
-    @GetMapping("/produto")
+    @GetMapping("/getproduto")
     public String getProduto(@RequestBody Produto produto) throws Exception {
         Armazem armazem = new Armazem();
         armazem.adicionarEstoque(new Estoque(0, 10));
