@@ -14,7 +14,11 @@ public class Estoque extends Produto {
         super();
         produtos = new ArrayList<>();
         this.qtdMaxProd = qtdMax;
-        this.qtdMinProd = qtdMin; 
+        this.qtdMinProd = qtdMin;
+    }
+
+    public List getProdutos() {
+        return produtos;
     }
 
     public void adicionarProduto(Produto produto) {

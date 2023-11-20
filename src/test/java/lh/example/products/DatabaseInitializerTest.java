@@ -34,6 +34,35 @@ public class DatabaseInitializerTest {
     }
 
     @Test
+    public void testInsertAndRetrieveObject() throws Exception {
+
+        DatabaseInitializer initializer = new DatabaseInitializer();
+        initializer.initializeDatabase();
+
+        Class.forName("org.h2.Driver");
+        String url = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1";
+        String user = "sa";
+        String password = "";
+        Connection connection = DriverManager.getConnection(url, user, password);
+
+        Statement deleteStatement = connection.createStatement();
+        deleteStatement.execute("DELETE FROM PRODUTOS");
+
+        Statement insertStatement = connection.createStatement();
+        insertStatement.execute("INSERT INTO PRODUTOS (id, nome, valor) VALUES (1, 'Camiseta Branca P Básica', 20.00)");
+
+        Statement retrieveStatement = connection.createStatement();
+        ResultSet resultSet = retrieveStatement.executeQuery("SELECT * FROM PRODUTOS WHERE id = 1");
+
+        assertTrue(resultSet.next());
+        assertEquals(1, resultSet.getInt("id"));
+        assertEquals("Camiseta Branca P Básica", resultSet.getString("nome"));
+        assertEquals(20.00, resultSet.getDouble("valor"), 0.01);
+
+        connection.close();
+    }
+
+    @Test
     public void testInitializeDatabaseInsertsData() throws Exception {
         DatabaseInitializer initializer = new DatabaseInitializer();
         initializer.initializeDatabase();
@@ -55,4 +84,5 @@ public class DatabaseInitializerTest {
 
         connection.close();
     }
+
 }

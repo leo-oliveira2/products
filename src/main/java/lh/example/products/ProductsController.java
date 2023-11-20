@@ -1,6 +1,5 @@
 package lh.example.products;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProductsController {
 
-    Estoque e = new Estoque();
+    Estoque e = new Estoque(0, 10);
 
     @RequestMapping("/prd")
     public String produto() {
@@ -20,9 +19,9 @@ public class ProductsController {
     @GetMapping("/produto")
     public String getProduto(@RequestBody Produto produto) throws Exception {
         Armazem armazem = new Armazem();
-        armazem.adicionarEstoque(new Estoque());
-        armazem.consultaProduto(produto);
-        return String.format("Id %d , Nome %s , Valor %.2f", produto.getId(), produto.getNome(), produto.getValor());
+        armazem.adicionarEstoque(new Estoque(0, 10));
+        Produto prod = armazem.consultaProduto(produto);
+        return String.format("Id %d , Nome %s , Valor %.2f", prod.getId(), prod.getNome(), prod.getValor());
     }
 
     @GetMapping("/listaProdEstoque")
