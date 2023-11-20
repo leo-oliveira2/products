@@ -6,11 +6,14 @@ import java.util.List;
 
 public class Estoque extends Produto {
 
-    private List<Produto> produtos;
+    private int qtdMaxProd;
+    private int qtdMinProd;
 
-    public Estoque() {
+    public Estoque(int qtdMax, int qtdMin) {
         super();
         produtos = new ArrayList<>();
+        this.qtdMaxProd = qtdMax;
+        this.qtdMinProd = qtdMin; 
     }
 
     public void adicionarProduto(Produto produto) {
