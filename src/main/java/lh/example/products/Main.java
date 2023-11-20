@@ -2,21 +2,33 @@ package lh.example.products;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class Main {
     public static void main(String[] args) {
-        // Inicie seu servidor aqui
+        try {
 
-        // Teste a conexão com o banco de dados
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/seu_banco_de_dados",
-                "sa", "")) {
-            if (connection != null) {
-                System.out.println("Conectado ao banco de dados!");
-            } else {
-                System.out.println("Falha na conexão ao banco de dados!");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/banco_fds", "root", "nova_senha");
+
+            // Cria um Statement para executar a consulta
+            Statement stmt = conn.createStatement();
+
+            // Executa a consulta
+            ResultSet rs = stmt.executeQuery("SELECT * FROM PRODUTOS");
+
+            // Imprime os resultados
+            while (rs.next()) {
+                System.out.println(rs.getInt("id") + "\t" +
+                        rs.getString("nome") + "\t" +
+                        rs.getDouble("valor"));
             }
-        } catch (SQLException e) {
+
+            // Fecha a conexão
+            conn.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
