@@ -15,8 +15,10 @@ public class Armazem {
         estoque.add(est);
     }
 
-    public List<Estoque> listarProdutos() {
-        return estoque;
+    public void listarProdutos() {
+        for(int i= 0; i < estoque.size(); i++){
+            System.out.println(estoque.get(i).toString());
+        }
     }
 
     public Produto consultaProduto(Produto produto) {
