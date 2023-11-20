@@ -8,7 +8,6 @@ CREATE TABLE PRODUTOS(
 
 );
 
-
 INSERT INTO PRODUTOS VALUES (1, 'Camiseta Branca P Básica', 20.00);
 INSERT INTO PRODUTOS VALUES (2, 'Camiseta Branca M Básica', 20.00);
 INSERT INTO PRODUTOS VALUES (3, 'Camiseta Branca G Básica', 22.00);

@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Armazem {
 
+    private List<Estoque> estoque;
     public Armazem() {
+        estoque = new ArrayList<>();
     }
-
-    public List<Estoque> estoque = new ArrayList<>();
 
     public void adicionarEstoque(Estoque est) {
         estoque.add(est);
@@ -22,4 +22,9 @@ public class Armazem {
         }
         throw new Exception("Produto não encontrado no estoque");
     }
+
+    public listarProdutos(){
+        
+    }
+
 }
