@@ -26,8 +26,8 @@ public class ProductsController {
     }
 
     @GetMapping("/listaProdEstoque")
-    public String listarProdutos(){
-        System.out.println(e.listarProdutos());
+    public void listarProdutos() {
+        e.listarProdutos();
     }
 
 }
