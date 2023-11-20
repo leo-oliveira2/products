@@ -1,3 +1,5 @@
+package lh.example.products;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -7,9 +9,11 @@ public class DatabaseInitializer {
     public void initializeDatabase() {
         try {
             // Substitua estas variáveis com as informações do seu banco de dados
-            String url = "jdbc:mysql://localhost:3306/seu_banco_de_dados";
-            String user = "teste";
-            String password = "123";
+
+            // Estabelecer uma conexão com o banco de dados H2 em memória
+            String url = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1";
+            String user = "sa";
+            String password = "";
 
             // Cria uma conexão com o banco de dados
             Connection connection = DriverManager.getConnection(url, user, password);
