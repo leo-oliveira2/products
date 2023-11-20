@@ -38,4 +38,8 @@ public class Produto {
         this.valor = valor;
     }
 
+    public String toString(){
+        return String.format("Id : %d \nNome: %s\nValor: %.2f", this.getId(), this.getNome(), this.getValor());
+    }
+
 }

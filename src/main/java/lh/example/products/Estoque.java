@@ -23,7 +23,7 @@ public class Estoque extends Produto {
 
     public void listarProdutos() {
         for (Produto produto : produtos) {
-            System.out.println(produto);
+            System.out.println(produto.toString());
         }
     }
 }

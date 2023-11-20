@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProductsController {
 
+    Estoque e = new Estoque();
+
     @RequestMapping("/prd")
     public String produto() {
         Produto p = new Produto(1, "Capa", 10.00);
@@ -21,6 +23,11 @@ public class ProductsController {
         armazem.adicionarEstoque(new Estoque());
         armazem.consultaProduto(produto);
         return String.format("Id %d , Nome %s , Valor %.2f", produto.getId(), produto.getNome(), produto.getValor());
+    }
+
+    @GetMapping("/listaProdEstoque")
+    public String listarProdutos(){
+        System.out.println(e.listarProdutos());
     }
 
 }
