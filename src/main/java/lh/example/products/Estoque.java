@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Estoque extends Produto {
 
+    private List<Produto> produtos;
     private int qtdMaxProd;
     private int qtdMinProd;
 
